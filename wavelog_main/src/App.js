@@ -318,8 +318,19 @@ function App() {
 
 // HOME SCREEN
 
-function HomeScreen({ sessions, originalSessions, onAddNew, onViewSession,
-  filterSpot, filterBoard, filterMood, setFilterSpot, setFilterBoard, setFilterMood }) {
+function HomeScreen(props) {
+  const {
+    sessions,
+    originalSessions,
+    onAddNew,
+    onViewSession,
+    filterSpot,
+    filterBoard,
+    filterMood,
+    setFilterSpot,
+    setFilterBoard,
+    setFilterMood,
+  } = props;
   return (
     <div style={{padding:'0 0 48px 0'}}>
       <h2 style={{
