@@ -317,7 +317,6 @@ function App() {
 // ---- COMPONENTS ----
 
 // HOME SCREEN
-
 function HomeScreen(props) {
   const {
     sessions,
@@ -332,74 +331,86 @@ function HomeScreen(props) {
     setFilterMood,
   } = props;
   return (
-    <div style={{padding:'0 0 48px 0'}}>
+    <div style={{ padding: '0 0 48px 0' }}>
       <h2 style={{
-        textAlign:'center',
-        fontWeight:700,
-        fontSize:'2.1rem',
-        color:'#20506F',
-        marginTop:0, marginBottom:6,
-        letterSpacing:0.5
+        textAlign: 'center',
+        fontWeight: 700,
+        fontSize: '2.1rem',
+        color: '#20506F',
+        marginTop: 0,
+        marginBottom: 6,
+        letterSpacing: 0.5
       }}>
         <span role="img" aria-label="surf log">🏄‍♂️</span> Surf Session Log
       </h2>
-      <p style={{textAlign:'center', color:'#256B7A',margin:'8px 0 32px 0', fontSize:'1.07rem'}}>
+      <p style={{ textAlign: 'center', color: '#256B7A', margin: '8px 0 32px 0', fontSize: '1.07rem' }}>
         {sessions.length === 0
           ? 'No sessions. Hit "+ Log New Session" to add your first!'
-          : `You have ${originalSessions.length} session${originalSessions.length>1?'s':''} logged.` }
+          : `You have ${originalSessions.length} session${originalSessions.length > 1 ? 's' : ''} logged.`}
       </p>
-      <div style={{display:'flex', justifyContent:'space-between', alignItems:'center',marginBottom:'12px',gap:9,flexWrap:'wrap'}}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', gap: 9, flexWrap: 'wrap' }}>
         <button
           className="btn btn-large"
           onClick={onAddNew}
-          style={{background: 'linear-gradient(90deg,#2ec4b6 40%,#3a8dad 100%)', fontWeight:600, fontSize:18, borderRadius: 24, boxShadow:'0 2px 6px rgba(58,141,173,0.12)',marginRight:7,letterSpacing:0.25}}
+          style={{
+            background: 'linear-gradient(90deg,#2ec4b6 40%,#3a8dad 100%)',
+            fontWeight: 600,
+            fontSize: 18,
+            borderRadius: 24,
+            boxShadow: '0 2px 6px rgba(58,141,173,0.12)',
+            marginRight: 7,
+            letterSpacing: 0.25
+          }}
         >+ Log New Session
         </button>
-        <div style={{display:'flex', gap:7, alignItems:'center', flexWrap:'wrap'}}>
+        <div style={{ display: 'flex', gap: 7, alignItems: 'center', flexWrap: 'wrap' }}>
           <select
             value={filterSpot}
-            onChange={e=>setFilterSpot(e.target.value)}
-            style={{borderRadius:8, border:'1px solid #2ec4b6', background:'#fff', color:'#2ec4b6',padding: '2px 7px'}}
+            onChange={e => setFilterSpot(e.target.value)}
+            style={{ borderRadius: 8, border: '1px solid #2ec4b6', background: '#fff', color: '#2ec4b6', padding: '2px 7px' }}
             title="Filter by spot"
           >
             <option value="">All Spots</option>
-            {SPOTS.map(spot=>(
+            {SPOTS.map(spot => (
               <option key={spot} value={spot}>{spot}</option>
             ))}
           </select>
           <select
             value={filterBoard}
-            onChange={e=>setFilterBoard(e.target.value)}
-            style={{borderRadius:8,border:'1px solid #3a8dad',background:'#fff', color:'#3a8dad',padding:'2px 7px'}}
+            onChange={e => setFilterBoard(e.target.value)}
+            style={{ borderRadius: 8, border: '1px solid #3a8dad', background: '#fff', color: '#3a8dad', padding: '2px 7px' }}
             title="Filter by board"
           >
             <option value="">All Boards</option>
-            {BOARDS.map(b=>(
+            {BOARDS.map(b => (
               <option key={b.name} value={b.name}>{b.name}</option>
             ))}
           </select>
           <select
             value={filterMood}
-            onChange={e=>setFilterMood(e.target.value)}
-            style={{borderRadius:8,border:'1px solid #ffd166',background:'#fff', color:'#ffd166',padding:'2px 7px'}}
+            onChange={e => setFilterMood(e.target.value)}
+            style={{ borderRadius: 8, border: '1px solid #ffd166', background: '#fff', color: '#ffd166', padding: '2px 7px' }}
             title="Filter by mood"
           >
             <option value="">All Moods</option>
-            {MOODS.map(m=>(
+            {MOODS.map(m => (
               <option key={m.label} value={m.label}>{m.label}</option>
             ))}
           </select>
         </div>
       </div>
-      <div style={{marginBottom:19, minHeight:1}}>
-        {sessions.length === 0 && <div style={{textAlign:'center',color:'#888',fontSize:16,paddingTop:22}}>No matching sessions found.</div>}
+      <div style={{ marginBottom: 19, minHeight: 1 }}>
+        {sessions.length === 0 && <div style={{ textAlign: 'center', color: '#888', fontSize: 16, paddingTop: 22 }}>No matching sessions found.</div>}
       </div>
       <div style={{
-        display:'grid', gap: '18px 18px',gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))',
-        margin: '18px 0', zIndex: 1
+        display: 'grid',
+        gap: '18px 18px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        margin: '18px 0',
+        zIndex: 1
       }}>
         {sessions.map(session => (
-          <SessionCard key={session.id} session={session} onClick={()=>onViewSession(session.id)} />
+          <SessionCard key={session.id} session={session} onClick={() => onViewSession(session.id)} />
         ))}
       </div>
     </div>
