@@ -328,7 +328,7 @@ function HomeScreen({
   filterMood,
   setFilterSpot,
   setFilterBoard,
-  setFilterMood,
+  setFilterMood
 }) {
   return (
     <div style={{padding:'0 0 48px 0'}}>
