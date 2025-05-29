@@ -4,6 +4,14 @@
   --text-color: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --border-color: rgba(255, 255, 255, 0.1);
+
+  /* SurfSync custom ocean palette */
+  --surf-blue: #3A8DAD;
+  --surf-accent: #2EC4B6;
+  --surf-sand: #F4E9D8;
+  --surf-midblue: #20506F;
+  --surf-shadow: 0 2px 12px rgba(42,172,196,0.20);
+  --surf-border-flat: #DEF6FA;
 }
 
 body {
